@@ -66,3 +66,30 @@ kubeadm init --apiserver-advertise-address=172.16.16.100 --pod-network-cidr=192.
 ```
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
 ```
+
+##### Cluster join command
+```
+kubeadm token create --print-join-command
+```
+
+##### To be able to run kubectl commands as non-root user
+If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+## On Kworker
+##### Join the cluster
+Use the output from __kubeadm token create__ command in previous step from the master server and run here.
+
+## Verifying the cluster (On kmaster)
+##### Get Nodes status
+```
+kubectl get nodes
+```
+##### Get component status
+```
+kubectl get cs
+```
