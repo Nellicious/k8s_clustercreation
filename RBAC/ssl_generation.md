@@ -18,3 +18,18 @@ Sign the certificate using certificate authority
 ```
 $ openssl x509 -req -in john.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out john.crt -days 365
 ```
+
+```
+openssl x509 -req -in john.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out john.crt -days 365
+
+	
+kubectl get config view
+
+	
+kubectl --kubeconfig john.kubeconfig config set-cluster kubernetes  --server https://10.182.0.3:6443 --certificate-authority=ca.crt
+
+
+kubectl --kubeconfig john.kubeconfig config set-credentials john --client-certificate /root/test/john.crt  --client-key /root/test/john.key
+
+kubectl --kubeconfig john.kubeconfig config set-context john-kubernetes --cluster kubernetes --namespace finance --user john 
+```
