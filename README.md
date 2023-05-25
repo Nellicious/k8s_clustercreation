@@ -1,7 +1,7 @@
 # k8s_clustercreation
 
 
- set up a Kubernetes cluster on Ubuntu 20.04 LTS.
+set up a Kubernetes cluster on Ubuntu 20.04 LTS.
  
  On both Kmaster and Kworker
 Login as root user
