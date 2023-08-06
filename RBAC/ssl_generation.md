@@ -15,8 +15,8 @@ $ scp root@kmaster:/etc/kubernetes/pki/ca.{crt,key} .
 ```
 
 Sign the certificate using certificate authority
-```
-$ openssl x509 -req -in john.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out john.crt -days 365
+
+$ openssl x509 -req -in john.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out john.crt -days 365
 ```
 
 ```
