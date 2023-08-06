@@ -18,3 +18,5 @@ kubectl create rolebinding john-fianace-rolebinding --role=john-finance --user=j
 kubectl --kubeconfig john.kubeconfig create deploy nginx --image nginx 
 
 ```
+##the below command a copy from line 2 above runs in the same folder
+##kubectl --kubeconfig john.kubeconfig config set-credentials john --client-certificate john.crt  --client-key john.key
